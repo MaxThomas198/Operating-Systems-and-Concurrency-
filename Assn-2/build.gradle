@@ -1,0 +1,28 @@
+plugins {
+    id 'java'
+    id 'application'        
+}
+
+sourceSets {
+    main {
+        java {
+            srcDirs = ['src']
+        }
+    }
+}
+
+mainClassName= 'Assign2'
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'Assign2'
+    }
+}
+
+run {   /* Run with: gradle run -PrunArgs="arg1 arg2 arg3" */
+    if (project.hasProperty('runArgs')) {
+        args project.getProperty('runArgs').split()
+    }
+}
+
+archivesBaseName = 'Assign2'
